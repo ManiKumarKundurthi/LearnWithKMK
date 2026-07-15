@@ -1,0 +1,32 @@
+---
+layout: base.njk
+title: Home
+---
+<section class="hero">
+  <p>I'm Mani Kumar Kundurthi — I work in data science and quantitative modeling, and write here as I work through machine learning, coding, and mathematics.</p>
+  <p>This is a running notebook, not a polished blog: derivations, implementation notes, and things I wanted to understand properly rather than skim past. Read the <a href="{{ '/about/' | url }}">about page</a> for more.</p>
+</section>
+
+<h2 class="index-heading">Articles</h2>
+
+{% if collections.articles.length %}
+<ul class="article-list">
+  {% for article in collections.articles %}
+  <li class="article-entry">
+    <span class="entry-index">{{ (loop.length - loop.index0) | pad2 }}</span>
+    <div class="entry-body">
+      <a href="{{ article.url | url }}" class="entry-title">{{ article.data.title }}</a>
+      <div class="entry-meta">
+        <time datetime="{{ article.data.date | isoDate }}">{{ article.data.date | readableDate }}</time>
+        {% for tag in article.data.tags %}
+          {% if tag != "articles" %}<span class="entry-tag">{{ tag }}</span>{% endif %}
+        {% endfor %}
+      </div>
+      {% if article.data.summary %}<p class="entry-summary">{{ article.data.summary }}</p>{% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="empty-note">No articles published yet — check back soon.</p>
+{% endif %}

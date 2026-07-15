@@ -1,0 +1,14 @@
+{
+  "title": "LearnWithKMK",
+  "description": "Notes and articles on machine learning, coding, and mathematics.",
+  "author": "Mani Kumar Kundurthi",
+  "url": "https://ManiKumarKundurthi.github.io/LearnWithKMK",
+  "github": "https://github.com/ManiKumarKundurthi",
+  "linkedin": "https://linkedin.com/in/codewithkmk",
+  "portfolio": "https://pf.manikumar.space",
+  "substack": "https://substack.com/@manikumar950",
+  "nav": [
+    { "text": "Home", "url": "/" },
+    { "text": "About", "url": "/about/" }
+  ]
+}

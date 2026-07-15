@@ -1,0 +1,21 @@
+---
+layout: base.njk
+templateClass: article
+---
+<a href="{{ '/' | url }}" class="back-link">&larr; all articles</a>
+
+<header class="article-header">
+  <h1 class="article-title">{{ title }}</h1>
+  <div class="article-meta">
+    <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+    {% if tags %}
+      {% for tag in tags %}
+        {% if tag != "articles" %}<span class="entry-tag">{{ tag }}</span>{% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+</header>
+
+<article class="prose">
+{{ content | safe }}
+</article>

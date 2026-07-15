@@ -1,0 +1,17 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if title %}{{ title }} · {{ site.title }}{% else %}{{ site.title }} — {{ site.description }}{% endif %}</title>
+<meta name="description" content="{{ summary or site.description }}">
+
+<!-- Open Graph -->
+<meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ site.title }}{% endif %}">
+<meta property="og:description" content="{{ summary or site.description }}">
+<meta property="og:type" content="{% if templateClass and templateClass == 'article' %}article{% else %}website{% endif %}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23c98a3e%22>∫</text></svg>">
+
+<link rel="stylesheet" href="{{ '/assets/css/katex.min.css' | url }}">
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
+<link rel="stylesheet" href="{{ '/assets/css/code-theme.css' | url }}">

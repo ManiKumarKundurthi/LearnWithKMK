@@ -1,0 +1,60 @@
+/* ==========================================================================
+   Prism.js token colors — tuned to the site's amber/charcoal palette
+   rather than a stock Prism theme.
+   ========================================================================== */
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6b6558;
+  font-style: italic;
+}
+
+.token.keyword,
+.token.selector,
+.token.tag {
+  color: #d9a866;
+}
+
+.token.function,
+.token.class-name {
+  color: #9cbf8a;
+}
+
+.token.string,
+.token.attr-value,
+.token.char {
+  color: #a8c2d6;
+}
+
+.token.number,
+.token.boolean,
+.token.constant {
+  color: #c98a3e;
+}
+
+.token.operator,
+.token.punctuation,
+.token.entity {
+  color: #948d7f;
+}
+
+.token.property,
+.token.attr-name,
+.token.variable {
+  color: #e8e3d8;
+}
+
+.token.builtin {
+  color: #d9a866;
+}
+
+.token.important,
+.token.bold {
+  font-weight: 600;
+}
+
+.token.italic {
+  font-style: italic;
+}

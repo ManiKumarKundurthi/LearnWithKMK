@@ -1,0 +1,21 @@
+{
+  "name": "learnwithkmk",
+  "version": "1.0.0",
+  "description": "LearnWithKMK - articles on ML, coding, and math",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "debug": "DEBUG=Eleventy* eleventy"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "@vscode/markdown-it-katex": "^1.1.1",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0"
+  },
+  "dependencies": {
+    "katex": "^0.17.0"
+  }
+}
