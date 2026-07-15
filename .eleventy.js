@@ -54,6 +54,11 @@ module.exports = function (eleventyConfig) {
     return String(num).padStart(2, "0");
   });
 
+  // Slice the first N items from an array (collections.articles, etc.)
+  eleventyConfig.addFilter("limit", (arr, n) => {
+    return arr.slice(0, n);
+  });
+
   // ---- Articles collection: all markdown files in src/articles, newest first ----
   eleventyConfig.addCollection("articles", (collectionApi) => {
     return collectionApi.getFilteredByGlob("src/articles/*.md").sort((a, b) => {

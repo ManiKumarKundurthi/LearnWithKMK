@@ -1,0 +1,15 @@
+---
+layout: base.njk
+title: All Articles
+permalink: /articles/
+---
+<a href="{{ '/' | url }}" class="back-link">&larr; home</a>
+
+<header class="article-header">
+  <h1 class="article-title">All Articles</h1>
+</header>
+
+{% set articleList = collections.articles %}
+{% set totalCount = collections.articles.length %}
+{% set offset = 0 %}
+{% include "partials/article-list.njk" %}

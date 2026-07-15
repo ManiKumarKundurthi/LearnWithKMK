@@ -3,13 +3,13 @@
 <head>
 {% include "partials/head.njk" %}
 </head>
-<body class="{% if templateClass == 'home' %}is-home{% elif templateClass == 'article' %}is-article{% endif %}">
+<body class="{% if templateClass == 'article' %}is-article{% endif %}">
 {% if templateClass == 'article' %}
 <div class="reading-progress" id="reading-progress"></div>
 {% endif %}
 {% include "partials/nav.njk" %}
 
-<main class="shell{% if templateClass == 'home' %} home-main{% endif %}">
+<main class="shell">
 {{ content | safe }}
 </main>
 

@@ -1,7 +1,6 @@
 ---
 layout: base.njk
 title: Home
-templateClass: home
 ---
 <section class="hero">
   <p>I'm Mani Kumar Kundurthi — I work in data science and quantitative modeling, and write here as I work through machine learning, coding, and mathematics.</p>
@@ -10,26 +9,11 @@ templateClass: home
 
 <h2 class="index-heading">Articles</h2>
 
-<div class="article-scroll">
-{% if collections.articles.length %}
-<ul class="article-list">
-  {% for article in collections.articles %}
-  <li class="article-entry">
-    <span class="entry-index">{{ (loop.length - loop.index0) | pad2 }}</span>
-    <div class="entry-body">
-      <a href="{{ article.url | url }}" class="entry-title">{{ article.data.title }}</a>
-      <div class="entry-meta">
-        <time datetime="{{ article.data.date | isoDate }}">{{ article.data.date | readableDate }}</time>
-        {% for tag in article.data.tags %}
-          {% if tag != "articles" %}<span class="entry-tag">{{ tag }}</span>{% endif %}
-        {% endfor %}
-      </div>
-      {% if article.data.summary %}<p class="entry-summary">{{ article.data.summary }}</p>{% endif %}
-    </div>
-  </li>
-  {% endfor %}
-</ul>
-{% else %}
-<p class="empty-note">No articles published yet — check back soon.</p>
+{% set articleList = collections.articles | limit(3) %}
+{% set totalCount = collections.articles.length %}
+{% set offset = 0 %}
+{% include "partials/article-list.njk" %}
+
+{% if collections.articles.length > 3 %}
+<a href="{{ '/articles/' | url }}" class="see-more-link">See more articles &rarr;</a>
 {% endif %}
-</div>

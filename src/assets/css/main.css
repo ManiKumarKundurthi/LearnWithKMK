@@ -103,39 +103,6 @@ button:focus-visible {
   background-clip: padding-box;
 }
 
-/* ---- Home page: fixed header/footer, only the article list scrolls ---- */
-body.is-home {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-body.is-home .site-header,
-body.is-home .site-footer {
-  flex-shrink: 0;
-}
-
-body.is-home .home-main {
-  flex: 1;
-  min-height: 0; /* allow child to shrink and scroll instead of overflowing */
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-body.is-home .hero,
-body.is-home .index-heading {
-  flex-shrink: 0;
-}
-
-.article-scroll {
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  padding-bottom: 2rem;
-}
-
 /* ---- Reading progress bar (article pages only) ---- */
 .reading-progress {
   position: fixed;
@@ -201,10 +168,6 @@ body.is-home .index-heading {
 .site-nav a[aria-current="page"] {
   color: var(--accent);
   border-bottom-color: var(--accent);
-}
-
-body.is-home .site-footer {
-  margin-top: 0;
 }
 
 /* ---- Footer ---- */
@@ -278,6 +241,20 @@ body.is-home .site-footer {
 }
 
 .article-entry:last-child {
+  border-bottom: none;
+}
+
+.see-more-link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 1.5rem;
+  border-bottom: none;
+}
+
+.see-more-link:hover {
+  color: var(--accent);
   border-bottom: none;
 }
 

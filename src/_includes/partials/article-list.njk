@@ -1,0 +1,25 @@
+{#
+  Renders a list of article entries.
+  Expects: articleList (array of 11ty collection items), totalCount (for index numbering)
+#}
+{% if articleList.length %}
+<ul class="article-list">
+  {% for article in articleList %}
+  <li class="article-entry">
+    <span class="entry-index">{{ (totalCount - loop.index0 - offset) | pad2 }}</span>
+    <div class="entry-body">
+      <a href="{{ article.url | url }}" class="entry-title">{{ article.data.title }}</a>
+      <div class="entry-meta">
+        <time datetime="{{ article.data.date | isoDate }}">{{ article.data.date | readableDate }}</time>
+        {% for tag in article.data.tags %}
+          {% if tag != "articles" %}<span class="entry-tag">{{ tag }}</span>{% endif %}
+        {% endfor %}
+      </div>
+      {% if article.data.summary %}<p class="entry-summary">{{ article.data.summary }}</p>{% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="empty-note">No articles published yet — check back soon.</p>
+{% endif %}
