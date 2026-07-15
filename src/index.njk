@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: Home
+templateClass: home
 ---
 <section class="hero">
   <p>I'm Mani Kumar Kundurthi — I work in data science and quantitative modeling, and write here as I work through machine learning, coding, and mathematics.</p>
@@ -9,6 +10,7 @@ title: Home
 
 <h2 class="index-heading">Articles</h2>
 
+<div class="article-scroll">
 {% if collections.articles.length %}
 <ul class="article-list">
   {% for article in collections.articles %}
@@ -30,3 +32,4 @@ title: Home
 {% else %}
 <p class="empty-note">No articles published yet — check back soon.</p>
 {% endif %}
+</div>

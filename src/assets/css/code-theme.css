@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Prism.js token colors — tuned to the site's amber/charcoal palette
+   Prism.js token colors — tuned to the site's indigo/charcoal palette
    rather than a stock Prism theme.
    ========================================================================== */
 
@@ -7,47 +7,47 @@
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #6b6558;
+  color: #63667a;
   font-style: italic;
 }
 
 .token.keyword,
 .token.selector,
 .token.tag {
-  color: #d9a866;
+  color: #8b9fe0;
 }
 
 .token.function,
 .token.class-name {
-  color: #9cbf8a;
+  color: #8fb89a;
 }
 
 .token.string,
 .token.attr-value,
 .token.char {
-  color: #a8c2d6;
+  color: #b8a8d6;
 }
 
 .token.number,
 .token.boolean,
 .token.constant {
-  color: #c98a3e;
+  color: #6d83d1;
 }
 
 .token.operator,
 .token.punctuation,
 .token.entity {
-  color: #948d7f;
+  color: #8f92a3;
 }
 
 .token.property,
 .token.attr-name,
 .token.variable {
-  color: #e8e3d8;
+  color: #e6e6ea;
 }
 
 .token.builtin {
-  color: #d9a866;
+  color: #8b9fe0;
 }
 
 .token.important,
