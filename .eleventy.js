@@ -76,6 +76,6 @@ module.exports = function (eleventyConfig) {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     templateFormats: ["md", "njk", "html"],
-    pathPrefix: "/LearnWithKMK/",
+    pathPrefix: "/",
   };
 };

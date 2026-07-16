@@ -2,7 +2,9 @@
 
 Articles on machine learning, coding, and mathematics. Built with [Eleventy](https://www.11ty.dev/), Markdown, and KaTeX. Dark theme, subtle by design.
 
-Live at: `https://ManiKumarKundurthi.github.io/LearnWithKMK/`
+Live at: `https://blog.manikumar.space`
+
+Hosted on **Cloudflare Pages**, connected directly to this GitHub repo. Every push to `main` triggers an automatic build and deploy.
 
 ## Writing a new article
 
@@ -55,14 +57,25 @@ npm run build      # production build to _site/
 
 ## Deployment
 
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the site and deploys it to GitHub Pages automatically. In the repo settings, under **Pages**, set the source to **GitHub Actions** (not "Deploy from branch").
+Hosted on **Cloudflare Pages**. Setup (one-time, in the Cloudflare dashboard):
 
-### Moving to a custom domain later
+1. **Workers & Pages → Create → Pages → Connect to Git**, select this repo
+2. Build settings:
+   - Framework preset: **Eleventy** (or None — either works with these settings)
+   - Build command: `npm run build`
+   - Build output directory: `_site`
+3. Cloudflare deploys automatically on every push to `main`, and creates preview deployments for other branches/PRs
 
-1. Add a `CNAME` file to `src/` (11ty will copy it to the build output) containing your domain, e.g. `articles.manikumar.space`
-2. Update the DNS records for that subdomain to point to GitHub Pages
-3. In `.eleventy.js`, change `pathPrefix` from `/LearnWithKMK/` to `/`
-4. Update `site.url` in `src/_data/site.json`
+### Custom domain
+
+1. In the Pages project → **Custom domains** → add `blog.manikumar.space`
+2. If your domain's DNS is already in the same Cloudflare account, this is close to one-click — Cloudflare adds the CNAME record for you automatically
+3. HTTPS is provisioned automatically
+
+### Notes
+
+- `pathPrefix` in `.eleventy.js` is set to `/` since Cloudflare Pages serves from the domain root (no subpath, unlike GitHub Pages project sites)
+- The old `.github/workflows/deploy.yml` (GitHub Actions → GitHub Pages) is no longer used now that Cloudflare Pages handles builds — safe to delete, or keep disabled for reference
 
 ## Structure
 
