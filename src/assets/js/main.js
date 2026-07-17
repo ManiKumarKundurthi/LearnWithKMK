@@ -20,6 +20,9 @@
   const blocks = document.querySelectorAll(".prose pre");
   if (!blocks.length) return;
 
+  const COPY_ICON = "content_copy";
+  const CHECK_ICON = "check";
+
   blocks.forEach((pre) => {
     // Wrap the <pre> so the button can be positioned relative to it.
     const wrapper = document.createElement("div");
@@ -30,8 +33,14 @@
     const button = document.createElement("button");
     button.type = "button";
     button.className = "copy-code-btn";
-    button.textContent = "copy";
     button.setAttribute("aria-label", "Copy code to clipboard");
+
+    const icon = document.createElement("span");
+    icon.className = "material-symbols-outlined";
+    icon.setAttribute("aria-hidden", "true");
+    icon.textContent = COPY_ICON;
+    button.appendChild(icon);
+
     wrapper.appendChild(button);
 
     button.addEventListener("click", async () => {
@@ -52,11 +61,13 @@
         document.body.removeChild(textarea);
       }
 
-      button.textContent = "copied";
+      icon.textContent = CHECK_ICON;
       button.classList.add("copied");
+      button.setAttribute("aria-label", "Copied");
       setTimeout(() => {
-        button.textContent = "copy";
+        icon.textContent = COPY_ICON;
         button.classList.remove("copied");
+        button.setAttribute("aria-label", "Copy code to clipboard");
       }, 1800);
     });
   });
