@@ -424,6 +424,51 @@ button:focus-visible {
   color: var(--accent);
 }
 
+.code-block {
+  position: relative;
+  margin: 0 0 1.5rem;
+}
+
+.code-block pre {
+  margin: 0;
+}
+
+.copy-code-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--text-faint);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.code-block:hover .copy-code-btn {
+  opacity: 1;
+}
+
+.copy-code-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.copy-code-btn:focus-visible {
+  opacity: 1;
+}
+
+.copy-code-btn.copied {
+  color: var(--accent);
+  border-color: var(--accent);
+  opacity: 1;
+}
+
 .prose pre {
   background: var(--surface);
   border: 1px solid var(--border);
