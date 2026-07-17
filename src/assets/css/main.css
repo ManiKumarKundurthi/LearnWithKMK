@@ -60,6 +60,7 @@ body {
 
 main.shell {
   padding-bottom: 3rem;
+  min-width: 0;
 }
 
 img {
@@ -126,6 +127,7 @@ button:focus-visible {
 
 /* ---- Layout shell ---- */
 .shell {
+  width: 100%;
   max-width: 54rem;
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -360,6 +362,7 @@ button:focus-visible {
 /* ---- Article body / prose ---- */
 .prose {
   max-width: var(--measure);
+  overflow-x: hidden;
 }
 
 .prose h1,
@@ -546,6 +549,7 @@ button:focus-visible {
 .katex-display {
   margin: 1.6rem 0;
   padding: 0.6rem 0;
+  max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
 }
