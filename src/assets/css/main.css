@@ -1,8 +1,6 @@
 /* ==========================================================================
    LearnWithKMK — theme tokens
-   A quiet, notebook-like dark theme: near-black charcoal, bone text, muted
-   indigo accent. Numbering styled like equation references, since the
-   content is genuinely mathematical.
+   A quiet, notebook-like dark theme updated to a modern DeepMind-inspired aesthetic.
    ========================================================================== */
 
 @import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
@@ -177,21 +175,8 @@ button:focus-visible {
 
 .site-nav {
   display: flex;
-  gap: 1.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.02em;
-  text-transform: lowercase;
-}
-
-.site-nav a {
-  color: var(--text-muted);
-}
-
-.site-nav a:hover,
-.site-nav a[aria-current="page"] {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
+  gap: 0.75rem;
+  align-items: center;
 }
 
 .btn-pill {
@@ -210,6 +195,14 @@ button:focus-visible {
   border-color: var(--text-faint);
   border-bottom: 1px solid var(--text-faint);
   color: var(--text);
+}
+
+/* Active solid pill for navigation */
+.site-nav .btn-pill[aria-current="page"] {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+  border-bottom: 1px solid var(--text);
 }
 
 /* ---- Footer ---- */
@@ -259,8 +252,9 @@ button:focus-visible {
 
 /* ---- Article index ---- */
 .index-heading {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--text-faint);
@@ -289,8 +283,8 @@ button:focus-visible {
 
 .see-more-link {
   display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
   color: var(--text-muted);
   margin-top: 1.5rem;
   border-bottom: none;
@@ -302,8 +296,8 @@ button:focus-visible {
 }
 
 .entry-index {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
   color: var(--accent);
   min-width: 2.1rem;
   flex-shrink: 0;
@@ -329,21 +323,24 @@ button:focus-visible {
 }
 
 .entry-meta {
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
   color: var(--text-faint);
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
   display: flex;
   gap: 0.7rem;
+  align-items: center;
   flex-wrap: wrap;
 }
 
 .entry-tag {
-  color: var(--text-muted);
-  background: var(--surface);
+  color: var(--text);
+  background: var(--surface-hover);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.05rem 0.45rem;
+  border-radius: 9999px;
+  padding: 0.1rem 0.7rem;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
 }
 
 .entry-summary {
@@ -356,8 +353,8 @@ button:focus-visible {
 /* ---- Article page ---- */
 .back-link {
   display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
   color: var(--text-muted);
   margin-top: 1.75rem;
   margin-bottom: 1.5rem;
@@ -385,8 +382,8 @@ button:focus-visible {
 }
 
 .article-meta {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
   color: var(--text-muted);
   display: flex;
   justify-content: center;
@@ -603,8 +600,9 @@ button:focus-visible {
 
 .prose th {
   color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -654,7 +652,7 @@ button:focus-visible {
   }
 
   .article-title {
-    font-size: 2rem; /* Adjusted down slightly for mobile */
+    font-size: 2rem; 
   }
 
   .hero p:first-of-type {
