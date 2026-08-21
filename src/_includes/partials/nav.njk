@@ -1,10 +1,17 @@
 <header class="site-header">
-  <div class="shell">
-    <a href="{{ '/' | url }}" class="site-mark">{{ site.title }}</a>
-    <nav class="site-nav">
-      {% for item in site.nav %}
-        <a href="{{ item.url | url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.text }}</a>
-      {% endfor %}
-    </nav>
+  <div class="shell nav-container">
+    <div class="nav-left">
+      <a href="{{ '/' | url }}" class="site-mark">{{ site.title }}</a>
+      <nav class="site-nav">
+        {% for item in site.nav %}
+          <a href="{{ item.url | url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.text }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+    <div class="nav-right">
+      <!-- Update hrefs to your actual project and repo links -->
+      <a href="#" class="btn-pill">Check my Projects</a>
+      <a href="#" class="btn-pill">GitHub Repo</a>
+    </div>
   </div>
 </header>
