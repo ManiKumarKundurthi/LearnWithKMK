@@ -5,15 +5,25 @@ templateClass: article
 <a href="{{ '/' | url }}" class="back-link">&larr; all articles</a>
 
 <header class="article-header">
-  <h1 class="article-title">{{ title }}</h1>
   <div class="article-meta">
     <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
     {% if tags %}
+      <span class="meta-separator">|</span>
       {% for tag in tags %}
-        {% if tag != "articles" %}<span class="entry-tag">{{ tag }}</span>{% endif %}
+        {% if tag != "articles" %}<span class="entry-tag">{{ tag | capitalize }}</span>{% endif %}
       {% endfor %}
     {% endif %}
   </div>
+  
+  <h1 class="article-title">{{ title }}</h1>
+  
+  <div class="article-author">Author: KMK</div>
+  
+  <!-- Uses your existing Material Symbols import for the icon -->
+  <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied!');">
+    Share 
+    <span class="material-symbols-outlined">ios_share</span>
+  </button>
 </header>
 
 <article class="prose">
