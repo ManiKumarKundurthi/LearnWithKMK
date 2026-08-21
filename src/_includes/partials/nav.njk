@@ -4,7 +4,7 @@
       <a href="{{ '/' | url }}" class="site-mark">{{ site.title }}</a>
       <nav class="site-nav">
         {% for item in site.nav %}
-          <a href="{{ item.url | url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.text }}</a>
+          <a href="{{ item.url | url }}" class="btn-pill" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.text | capitalize }}</a>
         {% endfor %}
       </nav>
     </div>
