@@ -1,0 +1,19 @@
+---
+layout: base.njk
+title: Page not found
+permalink: /404.html
+eleventyExcludeFromCollections: true
+---
+<a href="{{ '/' | url }}" class="back-link">&larr; home</a>
+
+<header class="article-header">
+  <h1 class="article-title">404</h1>
+  <div class="article-meta">
+    <span>This page wandered off.</span>
+  </div>
+</header>
+
+<div class="prose">
+  <p>The page you were looking for doesn't exist, or has moved. The link may be out of date.</p>
+  <p>Try the <a href="{{ '/' | url }}">homepage</a> or browse <a href="{{ '/articles/' | url }}">all articles</a>.</p>
+</div>

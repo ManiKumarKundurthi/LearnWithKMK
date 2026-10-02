@@ -1,0 +1,27 @@
+---
+layout: base.njk
+pagination:
+  data: collections.tagList
+  size: 1
+  alias: tag
+permalink: "/tags/{{ tag }}/"
+eleventyComputed:
+  title: "Tag: {{ tag }}"
+eleventyExcludeFromCollections: true
+---
+<a href="{{ '/articles/' | url }}" class="back-link">&larr; all articles</a>
+
+<header class="article-header">
+  <h1 class="article-title">{{ tag | capitalize }}</h1>
+  <div class="article-meta">
+    <span>Articles tagged &ldquo;{{ tag }}&rdquo;</span>
+  </div>
+</header>
+
+{% set articleList = [] %}
+{% for article in collections.articles %}
+  {% if tag in article.data.tags %}{% set articleList = (articleList.push(article), articleList) %}{% endif %}
+{% endfor %}
+{% set totalCount = articleList.length %}
+{% set offset = 0 %}
+{% include "partials/article-list.njk" %}

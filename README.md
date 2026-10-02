@@ -83,8 +83,24 @@ Hosted on **Cloudflare Pages**. Setup (one-time, in the Cloudflare dashboard):
 src/
 ├── _data/site.json          # site title, nav, social links
 ├── _includes/                # layouts and partials
-├── assets/css/                # theme CSS, self-hosted KaTeX CSS + fonts
+├── assets/css/                # theme CSS, self-hosted fonts (Inter, JetBrains Mono, KaTeX)
+├── assets/images/             # og-default.png (social share card)
+├── assets/js/main.js          # reading progress, share, copy-code (inline SVG icons)
 ├── articles/                  # all articles, flat, one .md file each
 ├── about.njk
-└── index.njk                  # homepage: about blurb + article list
+├── index.njk                  # homepage: about blurb + article list
+├── articles-index.njk         # /articles/ — full list + tag filter
+├── tag-page.njk               # /tags/<tag>/ — per-tag article lists
+├── 404.njk                    # custom not-found page
+├── feed.njk                   # /feed.xml — Atom feed
+├── sitemap.njk                # /sitemap.xml
+└── robots.njk                 # /robots.txt
 ```
+
+## Feeds, tags & SEO
+
+- **Atom feed** at `/feed.xml` (autodiscoverable via `<link rel="alternate">`), **`/sitemap.xml`**, and **`/robots.txt`** are generated at build time from the articles collection — no extra dependencies.
+- **Tags** are clickable: each links to `/tags/<tag>/`, and `/articles/` shows a filter row of all tags.
+- **Reading time** is estimated per article from the rendered content.
+- Each page emits a canonical URL, Open Graph / Twitter card tags (`og:image` → `/assets/images/og-default.png`), and JSON-LD structured data (`BlogPosting` on articles, `WebSite` elsewhere).
+- **Fonts are fully self-hosted** (`src/assets/css/fonts.css` + `fonts/`) — no Google Fonts CDN calls, no third-party requests, in keeping with the no-tracking goal. To regenerate the social card, re-run the canvas snippet that produced `og-default.png` (1200×630).
