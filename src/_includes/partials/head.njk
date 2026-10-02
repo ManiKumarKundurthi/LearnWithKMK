@@ -2,16 +2,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{% if title %}{{ title }} · {{ site.title }}{% else %}{{ site.title }} — {{ site.description }}{% endif %}</title>
 <meta name="description" content="{{ summary or site.description }}">
+<meta name="author" content="{{ site.author }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
 <!-- Open Graph -->
+<meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ site.title }}{% endif %}">
 <meta property="og:description" content="{{ summary or site.description }}">
 <meta property="og:type" content="{% if templateClass and templateClass == 'article' %}article{% else %}website{% endif %}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{{ site.url }}{{ '/assets/images/og-default.png' | url }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{% if title %}{{ title }}{% else %}{{ site.title }}{% endif %}">
+<meta name="twitter:description" content="{{ summary or site.description }}">
+<meta name="twitter:image" content="{{ site.url }}{{ '/assets/images/og-default.png' | url }}">
+
+<!-- Feed autodiscovery -->
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.url }}/feed.xml">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23c98a3e%22>∫</text></svg>">
 
+<link rel="stylesheet" href="{{ '/assets/css/fonts.css' | url }}">
 <link rel="stylesheet" href="{{ '/assets/css/katex.min.css' | url }}">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
 <link rel="stylesheet" href="{{ '/assets/css/code-theme.css' | url }}">
+
+{% if templateClass == 'article' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ title | dump | safe }},
+  "description": {{ (summary or site.description) | dump | safe }},
+  "datePublished": "{{ date | isoDate }}",
+  "dateModified": "{{ date | isoDate }}",
+  "author": { "@type": "Person", "name": {{ site.author | dump | safe }} },
+  "publisher": { "@type": "Person", "name": {{ site.author | dump | safe }} },
+  "url": "{{ site.url }}{{ page.url }}",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ site.url }}{{ page.url }}" },
+  "image": "{{ site.url }}{{ '/assets/images/og-default.png' | url }}"
+}
+</script>
+{% else %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ site.title | dump | safe }},
+  "description": {{ site.description | dump | safe }},
+  "url": "{{ site.url }}",
+  "author": { "@type": "Person", "name": {{ site.author | dump | safe }} }
+}
+</script>
+{% endif %}

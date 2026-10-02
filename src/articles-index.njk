@@ -9,6 +9,14 @@ permalink: /articles/
   <h1 class="article-title">All Articles</h1>
 </header>
 
+{% if collections.tagList.length %}
+<div class="tag-filter">
+  {% for tag in collections.tagList %}
+    <a href="{{ ['/tags/', tag, '/'] | join | url }}" class="entry-tag">{{ tag | capitalize }}</a>
+  {% endfor %}
+</div>
+{% endif %}
+
 {% set articleList = collections.articles %}
 {% set totalCount = collections.articles.length %}
 {% set offset = 0 %}
